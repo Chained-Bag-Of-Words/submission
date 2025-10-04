@@ -5,13 +5,13 @@
 The system is built as a Streamlit application using the LangChain framework to orchestrate
 interactions with the Google Gemini-2.5-Flash Large Language Model (LLM).
 
-| Component       | Purpose Key                                                            | Library/Tool                                       |
-| --------------- | ---------------------------------------------------------------------- | -------------------------------------------------- |
-| User Interface  | Accepts project files, code, description, and custom judging criteria. | streamlit                                          |
-| LLM Integration | Provides the intelligence for summarisation and judging.               | ChatGoogleGenerativeAI from langchain_google_genai |
-| Orchestration   | Manages the sequence of LLM calls (chains) and prompt engineering.     | LangChain                                          |
-| PDF Extraction  | Reads and extracts text content from PDF technical reports.            | PdfReader from pypdf                               |
-| Video Encoding  | Converts the demo video file into a base64 string for LLM analysis.    | base64                                             |
+| Component       | Purpose Key                                                            | Library/Tool                                                                                                                                                                        |
+| --------------- | ---------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| User Interface  | Accepts project files, code, description, and custom judging criteria. | [streamlit](https://streamlit.io)                                                                                                                                                   |
+| LLM Integration | Provides the intelligence for summarisation and judging.               | [ChatGoogleGenerativeAI](https://python.langchain.com/docs/integrations/chat/google_generative_ai/) from [langchain_google_genai](https://pypi.org/project/langchain-google-genai/) |
+| Orchestration   | Manages the sequence of LLM calls (chains) and prompt engineering.     | [LangChain](https://www.langchain.com/)                                                                                                                                             |
+| PDF Extraction  | Reads and extracts text content from PDF technical reports.            | PdfReader from [pypdf](https://pypi.org/project/pypdf/)                                                                                                                             |
+| Video Encoding  | Converts the demo video file into a base64 string for LLM analysis.    | [base64](https://docs.python.org/3/library/base64.html)                                                                                                                             |
 
 ## 2. Data Ingestion and Pre-Processing
 
