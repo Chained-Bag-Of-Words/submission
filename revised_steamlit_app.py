@@ -34,7 +34,8 @@ You are a highly efficient text processor. Your task is to analyze raw content f
 
 **INSTRUCTIONS:**
 1. **Technical Content Summary:** Read the provided technical documentation text. Summarize its key points regarding technical architecture, feasibility, and impact. If the content is empty or short, state "No technical content provided for analysis." Label this section clearly as "TECHNICAL SUMMARY:".
-2. **Presentation Summary:** Read the provided presentation notes or summary. Summarize the overall quality of the presentation, focusing on the clarity , feasibility , if the technicalities stated are correct or not, has it been plagiarised and is the content accurate. If the summary is empty or short, state "No presentation notes provided for analysis." Label this section clearly as "PRESENTATION SUMMARY:".
+2. **Presentation Summary:** Read the provided presentation notes or summary if its a complete presentation video. Summarize the overall quality of the presentation, focusing on the clarity , feasibility , if the technicalities stated are correct or not, has it been plagiarised and is the content accurate. If the summary is empty or short, state "No presentation notes provided for analysis." Label this section clearly as "PRESENTATION SUMMARY:"
+else-> if it is a video of the project in working then judge and base your summary on if the project works and if everything is correct, both cases are equally desirable so grade them accordingly
 
 Combine both summaries into a single, cohesive output. Do not include any other commentary.
 """
@@ -44,7 +45,7 @@ SUMMARY_USER_PROMPT = """
 TECHNICAL DOCUMENT TEXT (from PDF/Report, length: {pdf_length} characters):
 {pdf_text_content}
 ---
-PRESENTATION SUMMARY (from YouTube video, length: {presentation_length} characters):
+DEMO VIDEO SUMMARY (from video, length: {presentation_length} characters):
 {presentation_summary}
 ---
 Generate the summaries based on the system instructions.
@@ -72,7 +73,7 @@ No marks for effort only give marks for the results they got.
 {criteria_list}
 
 **PROCESS:**
-1.  **Analyze** the provided Project Description, Pre-generated Summaries (Technical and Presentation), and Demo Code Snippet.
+1.  **Analyze** the provided Project Description, Pre-generated Summaries (Technical and Presentation), and Demo Code Snippet, .
 2.  **Score** the project from 0 to 100 for EACH of the defined criteria.
 3.  **Justify** each score with detailed breakdown in sub caetgories with accurate description of the technical aspects(do not givve scores in sub categories but justify the main score with sub criterion).
 4.  **Calculate** the Final Weighted Score out of 100 based on the individual scores and the corresponding weights.
@@ -85,6 +86,7 @@ No marks for effort only give marks for the results they got.
 ## Final Weighted Score: [FINAL_CALCULATED_SCORE]/100.0
 
 ## Detailed Category Scores & Analysis
+##the presentation summary could be a presentation or a demo video summary,then score it based on if the project is working in the demo video summary and the ccriterion below , and if its a presentation summary then rate it based on criterias below.
 ##in the below categories, analyse in multiple sub-criterias and breakdown the score in relevent sub categories(do not givve scores in sub categories but justify the main score with sub criterion).
 ## keep sub criteria breakdown up to 5 criterion
 ## For code completeness and correctness, if the issue is very minor and easily fixable do not reduce marks heavily, if the issue is architectural or the code is not functional reduce marks heavily
@@ -113,6 +115,7 @@ Please judge the following hackathon submission using the summaries generated fr
 {file_summaries}
 ---
 **Demo Code Text:**
+
 {code_text}
 
 """
@@ -123,7 +126,7 @@ st.set_page_config(
     #initial_sidebar_state="expanded"
 )
 
-st.title("🏆 Gemini-Powered Hackathon Judge (YouTube Summary Version)")
+st.title("🏆 Gemini-Powered Hackathon Judge")
 st.markdown("Upload files and text. A **Summarization Chain** processes the files into text, which is then passed to the **Judge Chain** for scoring.")
 
 
