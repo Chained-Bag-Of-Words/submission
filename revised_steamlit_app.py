@@ -134,8 +134,9 @@ st.markdown("Upload files and text. A **Summarization Chain** processes the file
 # --------- Submission Input Section ---------
 
 st.header("Project Submission Details")
-col1, col2 = st.columns(2,vertical_alignment="bottom")
+col1, col2 = st.columns(2,vertical_alignment="top")
 with col1:
+    st.text("\n")
     description = st.text_area(
         "📝 Project Description (Concept & Goal) [Required]",
         height=200,
@@ -149,8 +150,9 @@ with col1:
         key="code"
     )
 with col2:
-    st.markdown("⚖️ Define Judging Criteria & Weights")
+    
     #st.sidebar.markdown("Edit the criteria and ensure the **Total Weight sums to 100%**.")
+    st.markdown("⚖️ Define Judging Criteria & Weights")
 
     edited_criteria = st.data_editor(
         #"⚖️ Define Judging Criteria & Weights",
