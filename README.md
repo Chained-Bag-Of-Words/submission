@@ -10,3 +10,5 @@ conda activate
 pip install -r requirements.txt
 streamlit run revised_steamlit_app.py
 ```
+
+For the technical report, please see [TECHNICAL_REPORT.md](./TECHNICAL_REPORT.md)
